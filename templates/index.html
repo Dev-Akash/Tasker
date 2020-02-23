@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <title>Tasker - Task Management App</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="navbar" id="navbar">
+        <div class="menu_container">
+            <div class="tab">
+                Home
+            </div>
+            <div class="tab">
+                Projects
+            </div>
+            <div onclick="close_navigation_menu()" style="padding: 10px;"><i class="material-icons md-48">menu_open</i></div>
+        </div>
+    </div>
+    <div class="header">
+        <div onclick="open_navigation_menu()" style="float: left; padding-right: 10px;"><i class="material-icons md-48">menu</i></div>
+        Tasker
+    </div>
+    <div class="project_card">
+        <div class="project_card_content">
+            <i class="material-icons md-48" style="font-size: 72px;">add</i><br>
+            New Project
+        </div>
+    </div>
+    <script src="{{url_for('static', filename='myscript.js')}}"></script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+body{
+    font-family: 'Orbitron';
+}
+.header{
+    margin: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    font-size: 32px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+.navbar{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-left: -10px;
+    margin-top: -10px;
+    display: none;
+    padding-top: 150px;
+    transition: 0.5s;
+    color: white;
+    z-index: 6;
+}
+.tab{
+    font-size: 32px;
+    border-bottom: 2px #ffffff;
+    padding: 5px;
+}
+.project_card{
+    position: absolute;
+    height: 200px;
+    width: 20%;
+    background: blue;
+    float: left;
+    margin-top: 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    font-size: 21px;
+    z-index: 3;
+}
+.project_card_content{
+    position: absolute; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
+}
+
+/*for tablet screen */
+@media screen and (max-width: 992px){
+    .project_card{
+        width: 30%;
+    }
+}
+
+/*for mobile screen */
+@media screen and (max-width: 600px){
+    .project_card{
+        width: 90%;
+    }
+}
