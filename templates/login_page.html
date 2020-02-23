@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+    <title>Tasker - Login</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="header">
+        Tasker
+    </div>
+    <div class="login_card">
+        <form action="/checkUser" method="POST">
+            <h2>Login</h2><br>
+            <h4>Username</h4>
+            <input type="text" name="uname" placeholder="Enter Username"/>
+            <h4>Password</h4>
+            <input type="password" name="upass" placeholder="Enter Password"/><br><br>
+            <input type="submit" value="Login"/>
+        </form>
+        <br><br>
+        <a href="sign_Up">New Here? Create a Account!</a>
+    </div>
+    <script src="{{url_for('static', filename='myscript.js')}}"></script>
+</body>
+</html>

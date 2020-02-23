@@ -76,16 +76,54 @@ body{
     background-color: black;
     display: block;
 }
+.login_card{
+    margin-top: 50px;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    border-radius: 5px;
+    padding: 20px;
+}
+.login_card form input {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 10px;
+    width: 70%;
+    font-family: 'Orbitron';
+}
+.login_card form input[type=Submit] {
+    background-color: blue;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    width: 30%;
+    font-weight: 800;
+}
+
 /*for tablet screen */
 @media screen and (max-width: 992px){
     .project_card{
         width: 30%;
+    }
+    .login_card{
+        width: 50%;
     }
 }
 
 /*for mobile screen */
 @media screen and (max-width: 600px){
     .project_card{
-        width: 90%;
+        width: 85%;
+        height: 150px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .login_card{
+        width: 80%;
+    }
+    .login_card form input[type=Submit]{
+        width: 50%;
     }
 }
