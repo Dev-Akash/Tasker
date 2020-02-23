@@ -14,19 +14,19 @@
             <div class="tab">
                 Projects
             </div>
-            <div onclick="close_navigation_menu()" style="padding: 10px;"><i class="material-icons md-48">menu_open</i></div>
+            <a href="javascript:void(0)" onclick="close_navigation_menu()" style="padding: 10px;"><i class="material-icons md-48">menu_open</i></a>
         </div>
     </div>
     <div class="header">
-        <div onclick="open_navigation_menu()" style="float: left; padding-right: 10px;"><i class="material-icons md-48">menu</i></div>
+        <a href="javascript:void(0)" onclick="open_navigation_menu()" style="float: left; padding-right: 10px;"><i class="material-icons md-48">menu</i></a>
         Tasker
     </div>
-    <div class="project_card">
+    <a href="new_project" class="project_card">
         <div class="project_card_content">
             <i class="material-icons md-48" style="font-size: 72px;">add</i><br>
             New Project
         </div>
-    </div>
+    </a>
     <script src="{{url_for('static', filename='myscript.js')}}"></script>
 </body>
 </html>

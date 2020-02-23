@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title>Tasker - Task Management App</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="navbar" id="navbar">
+        <div class="menu_container">
+            <div class="tab">
+                Home
+            </div>
+            <div class="tab">
+                Projects
+            </div>
+            <div onclick="close_navigation_menu()" style="padding: 10px;"><i class="material-icons md-48">menu_open</i></div>
+        </div>
+    </div>
+    <div class="header">
+        <div onclick="open_navigation_menu()" style="float: left; padding-right: 10px;"><i class="material-icons md-48">menu</i></div>
+        Tasker
+    </div>
+    <div class="content_container">
+        <h2>Create New Project</h2>
+        <div class="sep"></div>
+        <form method="POST" action="/create_project" class="newProjectform">
+            <h4>Project Name</h4>
+            <input type="text" name="projectName" placeholder="Project Name" required>
+            <h4>Project Description</h4>
+            <input type="text" name="projectdes" placeholder="Project Description" required>
+            <h4>Project Deadline</h4>
+            <input type="date" name="projectdead" placeholder="Project Deadline" required>
+            <h4>Add Team Email (Seperated by comma)</h4>
+            <input type="email" name="projectteam" placeholder="Team Email id's" multiple><br><br>
+            <input type="submit" value="Create Project" 
+            style="background-color: blue; font-weight: 800; color: white; border: none; border-radius: 5px; padding: 10px;">
+        </form>
+    </div>
+    <script src="{{url_for('static', filename='myscript.js')}}"></script>
+</body>
+</html>
