@@ -38,6 +38,7 @@ def add_user():
         conn = sqlite3.connect('Tasker.db')
         crsr = conn.cursor()
         crsr.execute("INSERT INTO cred (username, password, full_name) VALUES ('{}', '{}', '{}')".format(email, upass, full_name))
+        conn.commit()
         conn.close()
         return redirect(url_for('login'))
     else:
