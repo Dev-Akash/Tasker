@@ -22,10 +22,27 @@ def checkUser():
             return redirect(url_for('index'))
         else:
             return redirect(url_for('login'))
+    else:
+        return "BAD REQUEST"
 
 @app.route('/sign_Up', methods=['GET', 'POST'])
 def sign_Up():
     return render_template('sign_up.html')
+
+@app.route('/add_user', methods=['POST'])
+def add_user():
+    if request.method == 'POST':
+        full_name = request.form['u_full_name']
+        email = request.form['uemail']
+        upass = request.form['upass']
+        conn = sqlite3.connect('Tasker.db')
+        crsr = conn.cursor()
+        crsr.execute("INSERT INTO cred (username, password, full_name) VALUES ('{}', '{}', '{}')".format(email, upass, full_name))
+        conn.close()
+        return redirect(url_for('login'))
+    else:
+        return "BAD REQUEST"
+
 
 @app.route('/index')
 def index():
