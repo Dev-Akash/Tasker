@@ -13,14 +13,14 @@
         <form action="/add_user" method="POST">
             <h2>Sign Up</h2><br>
             <h4>Full Name</h4>
-            <input type="text" name="u_full_name" placeholder="Enter Full Name"/>
+            <input type="text" name="u_full_name" placeholder="Enter Full Name" required/>
             <h4>Email</h4>
-            <input type="text" name="uemail" placeholder="Enter Email"/>
+            <input type="email" name="uemail" placeholder="Enter Email" required/>
             <h4>Password</h4>
-            <input type="password" name="upass" placeholder="Enter Password" id="enter_pass"/><br><br>
+            <input type="password" name="upass" placeholder="Enter Password" id="enter_pass" required/><br><br>
             <h4>Re-enter Password</h4>
-            <input type="password" placeholder="Re-Enter Password" id="re_enter_pass"/><br><br>
-            <input type="submit" value="Sign Up"/>
+            <input type="password" placeholder="Re-Enter Password" id="re_enter_pass" required/><br><br>
+            <input type="submit" value="Sign Up" id="sign_up_button"/>
         </form>
     </div>
     <script src="{{url_for('static', filename='myscript.js')}}"></script>
