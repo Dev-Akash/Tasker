@@ -23,4 +23,24 @@ function checkPass(){
     }
 }
 
+function checkEmail(){
+    var email = document.getElementById("useremail").value
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if(this.status == 200 & this.readyState ==4){
+            var res = this.responseText;
+            if (res == "True"){
+                document.getElementById("useremail").style.border = "2px solid red";
+            }
+            else{
+                document.getElementById("useremail").style.border = "none";
+            }
+        }
+    }
+    xhttp.open("POST", "checkEmail?email="+email)
+    xhttp.send()
+}
+
 document.getElementById("re_enter_pass").addEventListener('input', checkPass)
+
+document.getElementById("useremail").addEventListener('blur', checkEmail)

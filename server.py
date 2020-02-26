@@ -54,6 +54,19 @@ def add_user():
     else:
         return "BAD REQUEST"
 
+@app.route('/checkEmail', methods=['POST'])
+def checkEmail():
+    if request.method == 'POST':
+        email = request.args.get('email')
+        conn = sqlite3.connect('Tasker.db')
+        crsr = conn.cursor()
+        crsr.execute("SELECT username FROM cred WHERE username=='{}'".format(email))
+        ans = crsr.fetchall()
+        conn.close()
+        if (len(ans) == 0):
+            return "False"
+        else:
+            return "True"
 
 @app.route('/')
 def index():
