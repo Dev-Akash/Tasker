@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, request, url_for, session
 import sqlite3
 from markupsafe import escape
+import uuid
 
 app = Flask(__name__)
 
@@ -27,6 +28,7 @@ def checkUser():
             ans1 = crsr.fetchall()
             conn.close()
             session['username'] = ans1[0][0]
+            session['email'] = name
             return redirect(url_for('index'))
         else:
             return redirect(url_for('login'))
@@ -83,9 +85,26 @@ def new_project():
 @app.route('/create_project', methods=['POST'])
 def create_project():
     if request.method == 'POST':
+        project_id = uuid.uuid4()
+        project_owner = escape(session['email'])
+        project_name = request.form['projectName']
+        project_des =  request.form['projectdes']
+        project_dead = request.form['projectdead']
+        project_team = request.form['projectteam']
+
+        conn = sqlite3.connect('Tasker.db')
+        crsr = conn.cursor()
+        crsr.execute("INSERT INTO project(ProjectID, Name, Description, Deadline, owner, team_member) VALUES ('{}', '{}', '{}', '{}', '{}', '{}')".format(project_id, project_name, project_des, project_dead, project_owner, project_team))
+        conn.commit()
+        conn.close()
         return redirect(url_for('index'))
     else:
         return "Bad Request"
+
+@app.route('/project_dash', methods=['POST'])
+def project_dash():
+    if ((request.method == 'POST') and ('username' in session)):
+        return render_template('project_dashboard.html')
 
 @app.route('/logout')
 def logout():
