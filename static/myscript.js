@@ -41,6 +41,17 @@ function checkEmail(){
     xhttp.send()
 }
 
+function fetchProjects(){
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function(){
+        if(this.status == 200 & this.readyState == 4){
+            var res = this.responseText;
+        } 
+    }
+    xhttp.open("POST", '/fetchProjects')
+    xhttp.send()
+}
+
 document.getElementById("re_enter_pass").addEventListener('input', checkPass)
 
 document.getElementById("useremail").addEventListener('blur', checkEmail)

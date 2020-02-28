@@ -8,6 +8,7 @@ An web application for maintaining a project stages and assign task to other dev
 - [X] Added checking for already exsisting email in sign-up
 - [X] Store new projects to database
 - [X] Add documentation to the code
-- [ ] Add projects created to index page
+- [X] Added function for XMLHttpRequest for fetching the data of projects from server
+- [ ] Add server side route to return all project names with project id
 - [ ] Add some color difference to project block associated as owner and as member
 - [ ] Create Project dashboard to manage Task and other activity for particular project
