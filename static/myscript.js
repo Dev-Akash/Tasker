@@ -46,6 +46,7 @@ function fetchProjects(){
     xhttp.onreadystatechange = function(){
         if(this.status == 200 & this.readyState == 4){
             var res = this.responseText;
+            console.log(res)
         } 
     }
     xhttp.open("POST", '/fetchProjects')

@@ -2,6 +2,7 @@ from flask import Flask, render_template, redirect, request, url_for, session
 import sqlite3
 from markupsafe import escape
 import uuid
+import json
 
 app = Flask(__name__)
 
@@ -155,6 +156,67 @@ def create_project():
         return redirect(url_for('index'))
     else:
         return "Bad Request"
+
+@app.route('/fetchProjects', methods=['POST'])
+def fetchProjects():
+    '''
+    This function will be triggered by XMLHttpRequest
+    asking for the projects associated with user 
+    account. This function will return a JSON string
+    for owned projects as well as other projects.
+    '''
+    if request.method == 'POST':
+        email = session['email']
+        #JSON data
+        root = '{ "owned" : [], "associated":[]}'
+        root_json = json.loads(root)
+        conn = sqlite3.connect('Tasker.db')
+        crsr = conn.cursor()
+        crsr.execute("SELECT * FROM project WHERE owner == '{}'".format(email))
+        ans = crsr.fetchall()
+        #print(ans)
+        temp = root_json['owned']
+        for i in ans:
+            project_id = i[0]
+            project_name = i[1]
+            project_des = i[2]
+            project_dead = i[3]
+            project_owner = i[4]
+            project_team = i[5]
+
+            data = {"project_id": project_id,
+            "project_name":project_name,
+            "project_des":project_des,
+            "project_dead":project_dead,
+            "project_owner":project_owner,
+            "project_team":project_team}
+
+            temp.append(data)
+        root = json.dumps(root_json)
+
+        root_json = json.loads(root)
+        crsr.execute("SELECT * FROM project WHERE team_member LIKE '%{}%'".format(email))
+        ans = crsr.fetchall()
+        conn.close()
+        temp = root_json['associated']
+        for i in ans:
+            project_id = i[0]
+            project_name = i[1]
+            project_des = i[2]
+            project_dead = i[3]
+            project_owner = i[4]
+            project_team = i[5]
+            
+            data = {"project_id": project_id,
+            "project_name":project_name,
+            "project_des":project_des,
+            "project_dead":project_dead,
+            "project_owner":project_owner,
+            "project_team":project_team}
+
+            temp.append(data)
+        root = json.dumps(root_json)
+        return root
 
 @app.route('/project_dash', methods=['POST'])
 def project_dash():
