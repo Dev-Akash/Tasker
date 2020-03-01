@@ -228,7 +228,23 @@ def project_dash():
     the XMLHttpRequest in javascript.
     '''
     if ('username' in session):
-        return render_template('poject_dashboard.html')
+        id = request.args.get('id')
+        conn = sqlite3.connect('Tasker.db')
+        crsr = conn.cursor()
+        crsr.execute("SELECT owner, team_member FROM project WHERE ProjectID =='{}'".format(id))
+        ans = crsr.fetchall()
+        allow = False
+        for i in ans:
+            if i[0] == str(escape(session['email'])):
+                allow = True
+            elif str(escape(session['email'])) in i[1]:
+                allow = True
+        if allow:
+            return render_template('project_dashboard.html', full_name=escape(session['username']))
+        else:
+            return "BAD REQUEST"
+    else:
+        return "BAD REQUEST"
 
 @app.route('/logout')
 def logout():

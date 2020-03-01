@@ -101,7 +101,24 @@ body{
     width: 30%;
     font-weight: 800;
 }
-
+.add_button{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: blue;
+    color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+.add_button i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 /*for tablet screen */
 @media screen and (max-width: 992px){
     .project_card{
