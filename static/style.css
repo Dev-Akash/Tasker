@@ -39,9 +39,8 @@ body{
     padding: 5px;
 }
 .project_card{
-    position: absolute;
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
     background: blue;
     float: left;
     margin-top: 20px;
@@ -54,12 +53,11 @@ body{
     text-align: center;
     font-size: 21px;
     z-index: 3;
+    text-decoration: none;
 }
-.project_card_content{
-    position: absolute; 
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%);
+.project_card_content{ 
+    margin-top: 50%;
+    transform: translate(0,-50%);
 }
 .content_container{
     padding-left: 10px;
@@ -107,6 +105,7 @@ body{
 @media screen and (max-width: 992px){
     .project_card{
         width: 200px;
+        height: 200px;
     }
     .login_card{
         width: 50%;
@@ -116,10 +115,12 @@ body{
 /*for mobile screen */
 @media screen and (max-width: 600px){
     .project_card{
-        width: 85%;
+        width: 90%;
         height: 150px;
-        left: 50%;
-        transform: translateX(-50%);
+    }
+    .project_card_content{ 
+        margin-top: 25%;
+        transform: translate(0,-50%);
     }
     .login_card{
         width: 80%;

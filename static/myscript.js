@@ -111,12 +111,16 @@ function addCards(projects){
         elem.className = "project_card";
         elem.href = "#"+projects[i].getID();
         console.log();
+        /*
+        var shift = "";
         if (count == 1){
-            elem.style.left = String((200 + 40 + 20)* count) + "px";    
+            shift = String(((200 + 40 )* count) + 15) + "px";   
         }
         else{
-            elem.style.left = String((200 + 40 + 10)* count) + "px";
-        }  
+            shift = String(((200 + 40)* count)+ 20) + "px";
+        }
+        elem.style.left =  shift;
+        */
         elem.appendChild(divv);
         //Adding the whole element to body now.
         document.body.appendChild(elem);
