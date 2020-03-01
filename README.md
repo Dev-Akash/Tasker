@@ -10,6 +10,6 @@ An web application for maintaining a project stages and assign task to other dev
 - [X] Add documentation to the code
 - [X] Added function for XMLHttpRequest for fetching the data of projects from server
 - [X] Add server side route to return all project names with project id (returned in JSON)
-- [ ] Manipulate JSON in javascript to show poject card on index.html
+- [X] Manipulate JSON in javascript to show poject card on index.html
 - [ ] Add some color difference to project block associated as owner and as member
 - [ ] Create Project dashboard to manage Task and other activity for particular project

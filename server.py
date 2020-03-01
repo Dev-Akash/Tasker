@@ -167,14 +167,15 @@ def fetchProjects():
     '''
     if request.method == 'POST':
         email = session['email']
-        #JSON data
+        #Creating JSON Data format
         root = '{ "owned" : [], "associated":[]}'
         root_json = json.loads(root)
         conn = sqlite3.connect('Tasker.db')
         crsr = conn.cursor()
         crsr.execute("SELECT * FROM project WHERE owner == '{}'".format(email))
         ans = crsr.fetchall()
-        #print(ans)
+        
+        #Adding JSON data for owned projects
         temp = root_json['owned']
         for i in ans:
             project_id = i[0]
@@ -194,6 +195,7 @@ def fetchProjects():
             temp.append(data)
         root = json.dumps(root_json)
 
+        #Adding JSON data for Associated projects
         root_json = json.loads(root)
         crsr.execute("SELECT * FROM project WHERE team_member LIKE '%{}%'".format(email))
         ans = crsr.fetchall()

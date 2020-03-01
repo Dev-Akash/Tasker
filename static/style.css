@@ -41,12 +41,13 @@ body{
 .project_card{
     position: absolute;
     height: 200px;
-    width: 20%;
+    width: 200px;
     background: blue;
     float: left;
     margin-top: 20px;
     margin-right: 10px;
     border-radius: 5px;
+    left: 20px;
     color: white;
     padding: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -105,7 +106,7 @@ body{
 /*for tablet screen */
 @media screen and (max-width: 992px){
     .project_card{
-        width: 30%;
+        width: 200px;
     }
     .login_card{
         width: 50%;

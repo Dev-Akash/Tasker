@@ -41,18 +41,85 @@ function checkEmail(){
     xhttp.send()
 }
 
+document.getElementById("re_enter_pass").addEventListener('input', checkPass)
+
+document.getElementById("useremail").addEventListener('blur', checkEmail)
+
 function fetchProjects(){
+    var all_projects = new Array();
+    //An abstract class for Projects.
+    class Project{
+        constructor(id, name, des, dead, owner, team){
+            this.id = id;
+            this.name = name;
+            this.des = des;
+            this.dead = dead;
+            this.owner = owner;
+            this.team = team;
+        }
+        getID(){return this.id;}
+        getName(){return this.name;}
+        getDescription(){return this.des;}
+        getDeadline(){return this.dead;}
+        getOwner(){return this.owner;}
+        getTeamMembers(){return this.team;}
+        setID(id){this.id = id;}
+        setName(name){this.name = name;}
+        setDescription(des){this.des = des;}
+        setDeadline(deadline){this.dead = deadline}
+        setOwner(owner){this.owner = owner}
+        setTeamMembers(member){this.team = member;}
+    }
+    //Requesting the server for return JSON of all projects.
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function(){
         if(this.status == 200 & this.readyState == 4){
-            var res = this.responseText;
-            console.log(res)
+            var json_output = JSON.parse(this.responseText);
+            var owned_arr = json_output.owned;
+            var associated_arr = json_output.associated;
+            //Adding owned projects in array
+            for (i in owned_arr){
+                var arr = owned_arr[i];
+                temp = new Project(arr.project_id,arr.project_name, arr.project_des, arr.project_dead, arr.project_owner, arr.project_team);
+                all_projects.push(temp);
+            }
+            //Adding associated projects in array
+            for (i in associated_arr){
+                var arr = associated_arr[i];
+                temp = new Project(arr.project_id,arr.project_name, arr.project_des, arr.project_dead, arr.project_owner, arr.project_team);
+                all_projects.push(temp);
+            }
+            //Creating and adding Cards to index Page
+            addCards(all_projects);
         } 
     }
     xhttp.open("POST", '/fetchProjects')
     xhttp.send()
+    console.log(all_projects);    
 }
 
-document.getElementById("re_enter_pass").addEventListener('input', checkPass)
-
-document.getElementById("useremail").addEventListener('blur', checkEmail)
+function addCards(projects){
+    var count = 1;
+    for (i in projects){
+        console.log(projects[i]);
+        //Creating inner content card of Project such as "Name"
+        var divv = document.createElement("div");
+        divv.className = "project_card_content";
+        divv.innerHTML = projects[i].getName();
+        //Creating the clickable element to wrap the above div
+        var elem = document.createElement("a");
+        elem.className = "project_card";
+        elem.href = "#"+projects[i].getID();
+        console.log();
+        if (count == 1){
+            elem.style.left = String((200 + 40 + 20)* count) + "px";    
+        }
+        else{
+            elem.style.left = String((200 + 40 + 10)* count) + "px";
+        }  
+        elem.appendChild(divv);
+        //Adding the whole element to body now.
+        document.body.appendChild(elem);
+        count++;
+    }
+}
