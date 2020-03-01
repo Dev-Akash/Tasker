@@ -90,18 +90,16 @@ function fetchProjects(){
                 all_projects.push(temp);
             }
             //Creating and adding Cards to index Page
-            addCards(all_projects);
+            addCards(all_projects, owned_arr.length, associated_arr.length);
         } 
     }
     xhttp.open("POST", '/fetchProjects')
-    xhttp.send()
-    console.log(all_projects);    
+    xhttp.send()  
 }
 
-function addCards(projects){
+function addCards(projects, olen, alen){
     var count = 1;
     for (i in projects){
-        console.log(projects[i]);
         //Creating inner content card of Project such as "Name"
         var divv = document.createElement("div");
         divv.className = "project_card_content";
@@ -109,18 +107,13 @@ function addCards(projects){
         //Creating the clickable element to wrap the above div
         var elem = document.createElement("a");
         elem.className = "project_card";
-        elem.href = "#"+projects[i].getID();
-        console.log();
-        /*
-        var shift = "";
-        if (count == 1){
-            shift = String(((200 + 40 )* count) + 15) + "px";   
+        elem.href = "/project_dash?id="+projects[i].getID();
+        if (i < olen){
+            elem.style.background = "purple";
         }
         else{
-            shift = String(((200 + 40)* count)+ 20) + "px";
+            elem.style.background = "orange";
         }
-        elem.style.left =  shift;
-        */
         elem.appendChild(divv);
         //Adding the whole element to body now.
         document.body.appendChild(elem);

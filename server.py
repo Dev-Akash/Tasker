@@ -220,15 +220,15 @@ def fetchProjects():
         root = json.dumps(root_json)
         return root
 
-@app.route('/project_dash', methods=['POST'])
+@app.route('/project_dash', methods=['GET','POST'])
 def project_dash():
     '''
     This would be the page for rendering all the information
     of the project selected and also helps to added data using
     the XMLHttpRequest in javascript.
     '''
-    if ((request.method == 'POST') and ('username' in session)):
-        return render_template('project_dashboard.html')
+    if ('username' in session):
+        return render_template('poject_dashboard.html')
 
 @app.route('/logout')
 def logout():
