@@ -13,6 +13,5 @@ An web application for maintaining a project stages and assign task to other dev
 - [X] Manipulate JSON in javascript to show poject card on index.html
 - [X] Add some color difference to project block associated as owner and as member
 - [X] Create Project dashboard to manage Task and other activity for particular project
-- [ ] Add forget password option
 - [ ] Implement storage of password after hashing and salting.
 - [ ] Add componets to Project Dashboard
