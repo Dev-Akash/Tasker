@@ -120,3 +120,19 @@ function addCards(projects, olen, alen){
         count++;
     }
 }
+
+var hide_n_seek_tap = 0;
+function hide_n_seek_menu(){
+    if (hide_n_seek_tap == 0){
+        document.getElementById("new_task_button").style.display = "block";
+        document.getElementById("new_stage_button").style.display = "block";
+        hide_n_seek_tap = 1;   
+    }
+    else{
+        document.getElementById("new_task_button").style.display = "none";
+        document.getElementById("new_stage_button").style.display = "none";
+        hide_n_seek_tap = 0; 
+    }
+}
+
+//document.getElementById("add_button").addEventListener("click", hide_n_seek_menu);
