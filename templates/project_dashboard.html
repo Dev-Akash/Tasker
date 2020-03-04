@@ -27,11 +27,16 @@
     <div class="add_button" id="add_button" onclick="hide_n_seek_menu()">
         <i class="material-icons md-48" style="font-size: 48px;">add</i>
     </div>
-    <div class="label" id="new_task_button">
+    <div class="label" id="new_task_button" onclick="prompt_task_dialogue()"> 
         New Task
     </div>
     <div class="label" style="bottom: 140px;" id="new_stage_button">
         New Stage
+    </div>
+    <div class="dialog_box" id="new_task_dialogue">
+        <h2>Create New Task</h2>
+        <h4>Task Name</h4>
+        <input type="text" placeholder="Enter Task Name">
     </div>
     <script src="{{url_for('static', filename='myscript.js')}}"></script>
 </body>

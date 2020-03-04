@@ -124,15 +124,22 @@ function addCards(projects, olen, alen){
 var hide_n_seek_tap = 0;
 function hide_n_seek_menu(){
     if (hide_n_seek_tap == 0){
-        document.getElementById("new_task_button").style.display = "block";
-        document.getElementById("new_stage_button").style.display = "block";
+        document.getElementById("new_task_button").style.display = "none";
+        document.getElementById("new_stage_button").style.display = "none";
         hide_n_seek_tap = 1;   
     }
     else{
-        document.getElementById("new_task_button").style.display = "none";
-        document.getElementById("new_stage_button").style.display = "none";
-        hide_n_seek_tap = 0; 
+        document.getElementById("new_task_button").style.display = "block";
+        document.getElementById("new_stage_button").style.display = "block";
+        hide_n_seek_tap = 0;
     }
 }
-
-//document.getElementById("add_button").addEventListener("click", hide_n_seek_menu);
+var prompt_task = 0;
+function prompt_task_dialogue(){
+    if (prompt_task == 0){
+        document.getElementById("new_task_dialogue").style.display = "block";
+    }
+    else{
+        document.getElementById("new_task_dialogue").style.display = "none";
+    }
+}

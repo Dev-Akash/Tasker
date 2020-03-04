@@ -127,7 +127,17 @@ body{
     right: 30px;
     cursor: pointer;
     border-radius: 5px;
-    display: block;
+    display: none;
+}
+.dialog_box{
+    position: absolute;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+    display: none;
 }
 /*for tablet screen */
 @media screen and (max-width: 992px){
