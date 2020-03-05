@@ -141,3 +141,7 @@ function prompt_task_dialogue(){
     document.getElementById("new_stage_button").style.display = "none";
     hide_n_seek_tap = 1;
 }
+
+function dialogDisappear(){
+    document.getElementById("new_task_dialogue").style.display = "none";
+}
