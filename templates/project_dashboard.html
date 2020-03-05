@@ -34,9 +34,21 @@
         New Stage
     </div>
     <div class="dialog_box" id="new_task_dialogue">
+        <div class="dialogue_close_button">
+            <i class="material-icons">
+                close
+            </i>
+        </div>
         <h2>Create New Task</h2>
-        <h4>Task Name</h4>
-        <input type="text" placeholder="Enter Task Name">
+        Task Name<br>
+        <input type="text" placeholder="Enter Task Name"><br>
+        Task Description<br>
+        <input type="text" placeholder="Enter Task Name"><br>
+        Task Assigenee<br>
+        <input type="text" placeholder="Enter Task Name"><br>
+        Task Deadline<br>
+        <input type="date" placeholder="Enter Task Name"><br>
+        <input type="submit" value="Create Task">
     </div>
     <script src="{{url_for('static', filename='myscript.js')}}"></script>
 </body>

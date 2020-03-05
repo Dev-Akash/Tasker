@@ -131,13 +131,48 @@ body{
 }
 .dialog_box{
     position: absolute;
-    padding: 10px;
+    padding: 20px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 5px;
     display: none;
+}
+.dialog_box input{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-family: 'Orbitron';
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+.dialog_box input[type='Submit']{
+    background-color: blue;
+    color: white;
+    border-radius: 5px;
+    margin-left: 50%;
+    transform: translate(-50%);
+}
+.dialogue_close_button{
+    position: absolute;
+    background-color: red;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    color: white;
+    right: 0px;
+    top: 0px;
+    transform: translate(30%, -30%);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+.dialogue_close_button i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 /*for tablet screen */
 @media screen and (max-width: 992px){
