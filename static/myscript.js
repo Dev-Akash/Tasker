@@ -142,6 +142,18 @@ function prompt_task_dialogue(){
     hide_n_seek_tap = 1;
 }
 
-function dialogDisappear(){
-    document.getElementById("new_task_dialogue").style.display = "none";
+function prompt_stage_dialogue(){
+    document.getElementById("new_stage_dialogue").style.display = "block";
+    document.getElementById("new_task_button").style.display = "none";
+    document.getElementById("new_stage_button").style.display = "none";
+    hide_n_seek_tap = 1;
+}
+
+function dialogDisappear(x){
+    if (x == 0){
+        document.getElementById("new_task_dialogue").style.display = "none";
+    }
+    else if(x ==1){
+        document.getElementById("new_stage_dialogue").style.display = "none";
+    }
 }

@@ -30,11 +30,11 @@
     <div class="label" id="new_task_button" onclick="prompt_task_dialogue()"> 
         New Task
     </div>
-    <div class="label" style="bottom: 140px;" id="new_stage_button">
+    <div class="label" style="bottom: 140px;" id="new_stage_button" onclick="prompt_stage_dialogue()">
         New Stage
     </div>
     <div class="dialog_box" id="new_task_dialogue">
-        <div class="dialogue_close_button" onclick="dialogDisappear()">
+        <div class="dialogue_close_button" onclick="dialogDisappear(0)">
             <i class="material-icons">
                 close
             </i>
@@ -49,6 +49,23 @@
         Task Deadline<br>
         <input type="date" placeholder="Enter Task Name"><br>
         <input type="submit" value="Create Task">
+    </div>
+    <div class="dialog_box" id="new_stage_dialogue">
+        <div class="dialogue_close_button" onclick="dialogDisappear(1)">
+            <i class="material-icons">
+                close
+            </i>
+        </div>
+        <h2>Create New Stage</h2>
+        Stage Name<br>
+        <input type="text" placeholder="Enter Stage Name"><br>
+        Stage Description<br>
+        <input type="text" placeholder="Enter Stage Description"><br>
+        Tasks Included<br>
+        <input type="text" placeholder="Enter Task Names to be Included"><br>
+        Reward Points<br>
+        <input type="number" placeholder="Enter Reward Points" max="500" min="10"><br>
+        <input type="submit" value="Create Stage">
     </div>
     <script src="{{url_for('static', filename='myscript.js')}}"></script>
 </body>
