@@ -112,6 +112,7 @@ body{
     bottom: 20px;
     right: 20px;
     cursor: pointer;
+    z-index: 5;
 }
 .add_button i{
     position: absolute;
@@ -128,6 +129,9 @@ body{
     cursor: pointer;
     border-radius: 5px;
     display: none;
+    z-index: 5;
+    background-color: white;
+    color: black;
 }
 .dialog_box{
     position: absolute;
@@ -138,6 +142,8 @@ body{
     transform: translate(-50%, -50%);
     border-radius: 5px;
     display: none;
+    background-color: white;
+    z-index: 5;
 }
 .dialog_box input{
     margin-top: 5px;
@@ -174,6 +180,19 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+#date_canvas{
+    width: 1260px; 
+    height: 540px;
+    background-color: white;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    z-index: 1;
+    border-radius: 10px;
+}
+
 /*for tablet screen */
 @media screen and (max-width: 992px){
     .project_card{
