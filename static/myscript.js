@@ -157,3 +157,42 @@ function dialogDisappear(x){
         document.getElementById("new_stage_dialogue").style.display = "none";
     }
 }
+
+function Submit_Task(){
+    var name = document.getElementById("task_name");
+    var desc = document.getElementById("task_desc");
+    var assig = document.getElementById("task_assig");
+    var dead = document.getElementById("task_dead");
+
+    if(name.value == ""){
+        name.style.border = "2px solid red";
+        name.style.borderRadius = "5px";
+    }
+    else{
+        name.style.border = "none";
+    }
+    if(desc.value == ""){
+        desc.style.border = "2px solid red";
+        desc.style.borderRadius = "5px";
+    }
+    else{
+        desc.style.border = "none";
+    }
+    if(assig.value == ""){
+        assig.style.border = "2px solid red";
+        assig.style.borderRadius = "5px";
+    }
+    else{
+        assig.style.border = "none";
+    }
+    if(dead.value == ""){
+        dead.style.border = "2px solid red";
+        dead.style.borderRadius = "5px";
+    }
+    else{
+        dead.style.border = "none";
+    }
+    if ((name.value != "") && (desc.value != "") && (assig.value != "") && (dead.value != "")){
+        console.log("Saved Successfully !!")
+    }
+}
