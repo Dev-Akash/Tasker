@@ -93,8 +93,8 @@ function fetchProjects(){
             addCards(all_projects, owned_arr.length, associated_arr.length);
         } 
     }
-    xhttp.open("POST", '/fetchProjects')
-    xhttp.send()  
+    xhttp.open("POST", '/fetchProjects');
+    xhttp.send();
 }
 
 function addCards(projects, olen, alen){
@@ -193,6 +193,14 @@ function Submit_Task(){
         dead.style.border = "none";
     }
     if ((name.value != "") && (desc.value != "") && (assig.value != "") && (dead.value != "")){
-        console.log("Saved Successfully !!")
+        //Send XMLHttpRequest to send all data to server
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(this.readyState==4 && this.status==200){
+                var res = this.responseText;
+            }
+        }
+        xhttp.open("POST", '/submitTask?name='+name.value+'&desc='+desc.value+'&assig='+assig.value+'&dead='+dead.value, true);
+        xhttp.send();
     }
 }
