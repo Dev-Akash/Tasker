@@ -246,6 +246,24 @@ def project_dash():
     else:
         return "BAD REQUEST"
 
+@app.route('/submitTask', methods=["POST"])
+def submitTask():
+    '''
+    This function will take the value of the task 
+    using AJAX call and submit it into the database
+    '''
+    if ('username' in session) and (request.method=="POST") :
+        name = request.args.get("name")
+        desc = request.args.get("desc")
+        assig = request.args.get("assig")
+        dead = request.args.get("dead")
+
+        print(name, desc, assig, dead)
+        return "ok"
+    else:
+        print("BAD REQUEST")
+        return "not ok"
+
 @app.route('/logout')
 def logout():
     '''

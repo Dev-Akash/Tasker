@@ -41,14 +41,14 @@
         </div>
         <h2>Create New Task</h2>
         Task Name<br>
-        <input type="text" placeholder="Enter Task Name"><br>
+        <input type="text" placeholder="Enter Task Name" id="task_name" ><br>
         Task Description<br>
-        <input type="text" placeholder="Enter Task Name"><br>
+        <input type="text" placeholder="Enter Task Description" id="task_desc" ><br>
         Task Assigenee<br>
-        <input type="text" placeholder="Enter Task Name"><br>
+        <input type="text" placeholder="Enter Task Assigenee" id="task_assig" ><br>
         Task Deadline<br>
-        <input type="date" placeholder="Enter Task Name"><br>
-        <input type="submit" value="Create Task">
+        <input type="date" id="task_dead" ><br>
+        <input type="submit" value="Create Task" onclick="Submit_Task()">
     </div>
     <div class="dialog_box" id="new_stage_dialogue">
         <div class="dialogue_close_button" onclick="dialogDisappear(1)">
@@ -58,14 +58,14 @@
         </div>
         <h2>Create New Stage</h2>
         Stage Name<br>
-        <input type="text" placeholder="Enter Stage Name"><br>
+        <input type="text" placeholder="Enter Stage Name" id="stage_name"><br>
         Stage Description<br>
-        <input type="text" placeholder="Enter Stage Description"><br>
+        <input type="text" placeholder="Enter Stage Description" id="stage_desc"><br>
         Tasks Included<br>
-        <input type="text" placeholder="Enter Task Names to be Included"><br>
+        <input type="text" placeholder="Enter Task Names to be Included" id="stage_task_names"><br>
         Reward Points<br>
-        <input type="number" placeholder="Enter Reward Points" max="500" min="10"><br>
-        <input type="submit" value="Create Stage">
+        <input type="number" placeholder="Enter Reward Points" max="50000" min="10" id="stage_reward"><br>
+        <input type="submit" value="Create Stage" onclick="Submit_Stage()">
     </div>
     <canvas id="date_canvas"></canvas>
     <script src="{{url_for('static', filename='myscript.js')}}"></script>
