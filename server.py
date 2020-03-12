@@ -240,7 +240,7 @@ def project_dash():
             elif str(escape(session['email'])) in i[1]:
                 allow = True
         if allow:
-            return render_template('project_dashboard.html', full_name=escape(session['username']))
+            return render_template('project_dashboard.html', full_name=escape(session['username']), id=id)
         else:
             return "BAD REQUEST"
     else:
@@ -257,11 +257,15 @@ def submitTask():
         desc = request.args.get("desc")
         assig = request.args.get("assig")
         dead = request.args.get("dead")
+        project_id = request.args.get("project_id")
 
-        print(name, desc, assig, dead)
+        conn = sqlite3.connect('Tasker.db')
+        crsr = conn.cursor()
+        crsr.execute("INSERT INTO Task VALUES ('{}', '{}', '{}', '{}', '{}')".format(project_id,name,desc,assig,dead))
+        conn.commit()
+        conn.close()
         return "ok"
     else:
-        print("BAD REQUEST")
         return "not ok"
 
 @app.route('/logout')

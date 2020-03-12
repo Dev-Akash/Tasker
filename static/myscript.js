@@ -163,6 +163,7 @@ function Submit_Task(){
     var desc = document.getElementById("task_desc");
     var assig = document.getElementById("task_assig");
     var dead = document.getElementById("task_dead");
+    var project_id = document.getElementById("project_id").innerHTML;
 
     if(name.value == ""){
         name.style.border = "2px solid red";
@@ -200,7 +201,8 @@ function Submit_Task(){
                 var res = this.responseText;
             }
         }
-        xhttp.open("POST", '/submitTask?name='+name.value+'&desc='+desc.value+'&assig='+assig.value+'&dead='+dead.value, true);
+        xhttp.open("POST", '/submitTask?name='+name.value+'&desc='+desc.value+'&assig='+assig.value+'&dead='+dead.value+'&project_id='+project_id, true);
         xhttp.send();
     }
+    document.getElementById("new_task_dialogue").style.display = "none";
 }
