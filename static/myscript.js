@@ -203,6 +203,56 @@ function Submit_Task(){
         }
         xhttp.open("POST", '/submitTask?name='+name.value+'&desc='+desc.value+'&assig='+assig.value+'&dead='+dead.value+'&project_id='+project_id, true);
         xhttp.send();
+        document.getElementById("new_task_dialogue").style.display = "none";
     }
-    document.getElementById("new_task_dialogue").style.display = "none";
+}
+
+function Submit_Stage(){
+    var name = document.getElementById("stage_name");
+    var desc = document.getElementById("stage_desc");
+    var tasks = document.getElementById("stage_task_names");
+    var reward = document.getElementById("stage_reward");
+    var project_id = document.getElementById("project_id").innerHTML;
+
+    if(name.value == ""){
+        name.style.border = "2px solid red";
+        name.style.borderRadius = "5px";
+    }
+    else{
+        name.style.border = "none";
+    }
+    if(desc.value == ""){
+        desc.style.border = "2px solid red";
+        desc.style.borderRadius = "5px";
+    }
+    else{
+        desc.style.border = "none";
+    }
+    if(tasks.value == ""){
+        tasks.style.border = "2px solid red";
+        tasks.style.borderRadius = "5px";
+    }
+    else{
+        tasks.style.border = "none";
+    }
+    if(reward.value == ""){
+        reward.style.border = "2px solid red";
+        reward.style.borderRadius = "5px";
+    }
+    else{
+        reward.style.border = "none";
+    }
+
+    if((name.value != "") && (desc.value != "") && (tasks.value != "") && (reward.value != "")){
+        //Send XMLHttpRequest for saving stage form data.
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(this.readyState==4 && this.status==200){
+                var res = this.responseText;
+            }
+        }
+        xhttp.open("POST", '/submitStage?name='+name.value+'&desc='+desc.value+'&tasks='+tasks.value+'&reward='+reward.value+'&project_id='+project_id, true);
+        xhttp.send();
+        document.getElementById("new_stage_dialogue").style.display = "none";
+    }
 }
