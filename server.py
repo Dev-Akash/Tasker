@@ -268,6 +268,24 @@ def submitTask():
     else:
         return "not ok"
 
+@app.route("/submitStage", methods=["POST"])
+def submitStage():
+    '''
+    This function will take the value of the stage form 
+    using AJAX call and submit it into the database
+    '''
+    if ('username' in session) and (request.method=="POST") :
+        name = request.args.get("name")
+        desc = request.args.get("desc")
+        tasks = request.args.get("tasks")
+        rewards = request.args.get("rewards")
+        project_id = request.args.get("project_id")
+
+        print(name, desc, tasks, rewards, project_id)
+        return "ok"
+    else:
+        return "not ok"
+
 @app.route('/logout')
 def logout():
     '''
