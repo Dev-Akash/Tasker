@@ -282,6 +282,12 @@ def submitStage():
         project_id = request.args.get("project_id")
 
         print(name, desc, tasks, rewards, project_id)
+        conn = sqlite3.connect('Tasker.db')
+        crsr = conn.cursor()
+        crsr.execute("INSERT INTO Stage VALUES ('{}', '{}', '{}', '{}', '{}')".format(project_id,name,desc,tasks,rewards))
+        conn.commit()
+        conn.close()
+
         return "ok"
     else:
         return "not ok"
