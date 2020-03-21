@@ -3,9 +3,10 @@ import sqlite3
 from markupsafe import escape
 import uuid
 import json
+import createDatabase as cd
 
 app = Flask(__name__)
-
+cd.createDatabase()
 #This key must be changed before deploying it and must be unique
 app.secret_key = b'Z\xb3Q\x93\xfd\xf1\xfe\x1c\x8c\xc2\x1c\x8eDlZ+'
 
@@ -44,13 +45,14 @@ def checkUser():
         crsr = conn.cursor()
         crsr.execute("SELECT password FROM cred WHERE username == '{}'".format(name))
         ans = crsr.fetchall()
-        if ans[0][0] == password:
-            crsr.execute("SELECT full_name FROM cred WHERE username == '{}'".format(name))
-            ans1 = crsr.fetchall()
-            conn.close()
-            session['username'] = ans1[0][0]
-            session['email'] = name
-            return redirect(url_for('index'))
+        if not (len(ans) == 0):
+            if ans[0][0] == password:
+                crsr.execute("SELECT full_name FROM cred WHERE username == '{}'".format(name))
+                ans1 = crsr.fetchall()
+                conn.close()
+                session['username'] = ans1[0][0]
+                session['email'] = name
+                return redirect(url_for('index'))
         else:
             return redirect(url_for('login'))
     else:
